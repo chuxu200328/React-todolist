@@ -51,11 +51,13 @@ class App extends Component {
     this.setState({ items });
   };
   upItem = i => {
-    const items = this.state.items;
-    const temp = items[i - 1];
-    items[i - 1] = items[i];
-    items[i] = temp;
-    this.setState({ items });
+    if (i !== 0) {
+      const items = this.state.items;
+      const temp = items[i - 1];
+      items[i - 1] = items[i];
+      items[i] = temp;
+      this.setState({ items });
+    }
   };
   render() {
     return (
